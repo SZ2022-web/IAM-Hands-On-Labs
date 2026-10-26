@@ -12,6 +12,7 @@ This portfolio documents my hands-on practice with user lifecycle management, pa
 | 01 | [Employee Lifecycle](Lab-01-Employee-Lifecycle/) | Onboarding, department transfers, group membership, offboarding, and sign-in validation |
 | 02 | [Password Reset](Lab-02-Password-Reset/) | Administrator password reset, user password change, and audit verification |
 | 03 | [Group Management and RBAC](Lab-03-Group-Management-and-RBAC/) | Security groups, direct Directory Readers assignment, permission observations, and role removal |
+| 04 | [MFA and Sign-in Evidence](Lab-04-MFA/) | Authentication methods, Security defaults, identity verification, and interpretation of sign-in logs and evidence limitations |
 
 ## Skills Demonstrated
 
