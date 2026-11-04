@@ -1,8 +1,8 @@
 # IAM Hands-On Labs
 
-Practical Identity and Access Management (IAM) projects using Microsoft Entra ID.
+Practical Identity and Access Management (IAM) projects using Microsoft Entra ID and Microsoft Graph PowerShell.
 
-This portfolio documents my hands-on practice with user lifecycle management, password administration, security groups, directory roles, authentication, and audit logs. Each lab includes explanations and screenshots documenting the work performed.
+This portfolio documents my hands-on practice with user lifecycle management, password administration, security groups, directory roles, authentication, single sign-on, audit logs, and PowerShell automation. Each lab includes explanations and screenshots documenting the work performed.
 
 ## Lab Directory
 
@@ -15,46 +15,73 @@ This portfolio documents my hands-on practice with user lifecycle management, pa
 | 04 | [MFA and Sign-in Evidence](./Lab-04-MFA/) | Authentication methods, security defaults, and interpretation of sign-in evidence |
 | 05 | [SAML Single Sign-On](./Lab-05-SAML-SSO/) | SAML-based single sign-on configuration and testing |
 | 06 | [User Provisioning and Deprovisioning](./Lab-06-Entra-ID-Provisioning-Deprovisioning/) | Manual user creation, group assignment, Authenticator registration, account disabling, session revocation, group removal, and audit review |
+| 07 | [PowerShell IAM Automation](./Lab-07-PowerShell-IAM-Automation/) | CSV-based user provisioning, group assignment, account disabling, session-revocation requests, group removal, and read-back validation using Microsoft Graph PowerShell |
 
 ## Skills Demonstrated
 
 - Creating and managing test user accounts
+- Updating departments and job titles
 - Managing security group memberships
 - Assigning and removing directory roles
-- Resetting passwords and reviewing audit records
-- Registering authentication methods
-- Configuring and testing SAML single sign-on
+- Performing password administration
+- Registering authentication methods and reviewing sign-in evidence
+- Configuring and testing SAML-based single sign-on
 - Performing manual user provisioning and deprovisioning
-- Reviewing audit and sign-in evidence
-- Documenting procedures, results, and validation limitations
+- Automating bulk identity tasks with Microsoft Graph PowerShell
+- Processing CSV input and exporting result reports
+- Handling errors in PowerShell workflows
+- Verifying account state and group membership through separate queries
+- Reviewing audit logs and documenting evidence limitations
 
-## Featured Project: User Provisioning and Deprovisioning
+## Featured Lab: PowerShell IAM Automation
 
-Lab 06 follows a fictional employee, Alex Morgan, through onboarding and offboarding in Microsoft Entra ID.
+In Lab 07, I used Microsoft Graph PowerShell to perform an identity lifecycle workflow for two fictional employees.
 
-### Onboarding
+### Provisioning
 
-- Created the test user account.
-- Added the user to the LAB-Finance security group.
-- Registered Microsoft Authenticator.
-- Confirmed group membership and reviewed audit records.
+- Imported employee information from a CSV file
+- Created two test accounts with Finance department attributes
+- Verified that both accounts were enabled
+- Added both users to the LAB-Finance security group
+- Independently verified their group memberships
+- Exported provisioning and group-assignment results
 
 ### Offboarding
 
-- Disabled the user account.
-- Revoked sign-in sessions.
-- Removed the LAB-Finance group membership.
-- Confirmed that no group memberships remained.
-- Observed a blocked account message during a subsequent sign-in attempt.
+- Disabled both test accounts
+- Requested revocation of their sign-in sessions
+- Removed their LAB-Finance group memberships
+- Exported offboarding and group-removal results
+- Queried the directory again to verify the final state
 
-### Scope and Validation
+### Verified Results
 
-This lab demonstrates manual administration. Automated provisioning, SCIM, and HR integrations were outside its scope.
+| Test User | Account Disabled | LAB-Finance Membership Removed |
+| --- | --- | --- |
+| LAB07 Jamie Lee | Yes | Yes |
+| LAB07 Taylor Reed | Yes | Yes |
 
-Group membership does not establish access to a Finance application, and Authenticator registration alone does not prove MFA enforcement. A failed sign-in log was not captured, so the exact sign-in rejection reason was not confirmed through logs.
+Microsoft Entra admin center screenshots also showed both accounts as **Disabled**, with **0 group memberships**.
+
+The session-revocation API returned successful responses. This confirms the requests completed; termination of an active test-user session was not observed.
+
+[View Lab 07 documentation, script, and screenshots](./Lab-07-PowerShell-IAM-Automation/)
+
+## Tools and Technologies
+
+- Microsoft Entra admin center
+- Microsoft Graph PowerShell SDK
+- PowerShell 7
+- CSV input and reporting
+- Microsoft Authenticator
+- SAML single sign-on
+- Audit and sign-in logs
+- GitHub documentation
 
 ## About This Portfolio
 
-These projects were completed in a personal lab using test accounts. They represent hands-on learning rather than production employment experience.
+These projects were completed in a personal lab using test accounts. They demonstrate hands-on learning and do not represent production employment experience.
 
-Each lab documents its scope, observed results, and evidence limitations. Personal account details are redacted from public screenshots. Individual lab notes explain any additional image processing.
+Each lab documents its scope, observed results, and validation limitations. Public screenshots have personal account details redacted.
+
+Lab 07 demonstrates an operator-run PowerShell workflow. It does not implement SCIM, HR integration, scheduling, or unattended authentication.
