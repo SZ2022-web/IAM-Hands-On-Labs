@@ -1,0 +1,9 @@
+1. Extract this ZIP.
+2. Open your IAM-Hands-On-Labs repository on GitHub.
+3. Choose Add file > Upload files.
+4. Drag the Lab-06-Entra-ID-Provisioning-Deprovisioning folder into the upload area.
+5. Confirm README.md and screenshots/ are inside that folder.
+6. Commit message: Add Lab 06: Entra ID user provisioning and deprovisioning.
+7. Commit and open the folder to verify screenshots display.
+
+Upload the extracted folder, not the ZIP file.
